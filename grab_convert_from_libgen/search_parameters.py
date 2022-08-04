@@ -76,6 +76,7 @@ class FictionSearchParameters(SearchParameters):
         self.language: str = self.parameters.get("language")
         self.format: str = self.parameters.get("format")
         self.wildcard: str = self.parameters.get("wildcard")
+        self.page: int = self.parameters.get("page")
 
     def are_valid(self) -> bool:
         return True
@@ -89,4 +90,5 @@ class FictionSearchParameters(SearchParameters):
             language=self.language,
             format=self.format,
             wildcard=self.wildcard,
+            page=self.page,
         )
