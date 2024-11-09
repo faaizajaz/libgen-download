@@ -5,9 +5,9 @@ def get_search_request_url(topic: str, **parameters):
     base_url = ""
 
     if topic == "sci-tech":
-        base_url = "https://libgen.rs/search.php"
+        base_url = "https://libgen.is/search.php"
     elif topic == "fiction":
-        base_url = "http://libgen.rs/fiction/"
+        base_url = "http://libgen.is/fiction/"
     else:
         raise ValueError("Topic must be 'sci-tech' or 'fiction'")
 
