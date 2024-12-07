@@ -3,14 +3,14 @@ import urllib
 from collections import OrderedDict
 from typing import Dict
 
-import requests
 import lxml.html as html
+import requests
 
 from . import mirrors
-from .search_parameters import SciTechSearchParameters, FictionSearchParameters
-from .search_config import get_request_headers
 from .convert import ConversionError, convert_file_to_format
-from .exceptions import LibgenError, InvalidSearchParameter
+from .exceptions import InvalidSearchParameter, LibgenError
+from .search_config import get_request_headers
+from .search_parameters import FictionSearchParameters, SciTechSearchParameters
 
 
 class LibgenSearch:
@@ -146,7 +146,13 @@ class LibgenSearch:
                     "mirror5",
                     "edit",
                 ] and list(value.iterlinks()):
-                    value = list(value.iterlinks())[0][2]
+                    links = list(value.iterlinks())
+                    if len(links) > 1:
+                        value = links[1][2]
+                    else:
+                        value = links[0][2]
+
+                    # value = list(value.iterlinks())[0][2]
                 else:
                     value = (
                         value.text_content().strip().replace("\n", "").replace("\t", "")
@@ -193,7 +199,11 @@ class LibgenSearch:
                 if header in ["mirror1", "mirror2", "mirror3", "edit"] and list(
                     value.iterlinks()
                 ):
-                    value = list(value.iterlinks())[0][2]
+                    links = list(value.iterlinks())
+                    if len(links) > 1:
+                        value = links[1][2]
+                    else:
+                        value = links[0][2]
                 else:
                     value = (
                         value.text_content().strip().replace("\n", "").replace("\t", "")
