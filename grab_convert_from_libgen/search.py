@@ -131,9 +131,6 @@ class LibgenSearch:
                     "extension",
                     "mirror1",
                     "mirror2",
-                    "mirror3",
-                    "mirror4",
-                    "mirror5",
                     "edit",
                 ],
                 tr.getchildren(),
@@ -141,9 +138,6 @@ class LibgenSearch:
                 if header in [
                     "mirror1",
                     "mirror2",
-                    "mirror3",
-                    "mirror4",
-                    "mirror5",
                     "edit",
                 ] and list(value.iterlinks()):
                     links = list(value.iterlinks())
@@ -191,14 +185,11 @@ class LibgenSearch:
                     "file",
                     "mirror1",
                     "mirror2",
-                    "mirror3",
                     "edit",
                 ],
                 tr.getchildren(),
             ):
-                if header in ["mirror1", "mirror2", "mirror3", "edit"] and list(
-                    value.iterlinks()
-                ):
+                if header in ["mirror1", "mirror2", "edit"] and list(value.iterlinks()):
                     links = list(value.iterlinks())
                     if len(links) > 1:
                         value = links[1][2]
