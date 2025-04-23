@@ -218,6 +218,7 @@ class LibgenSearch:
 
         if self.topic == "fiction":
             self.results = self._get_fiction_results()
+        print("LGD results")
 
         return self.results
 
