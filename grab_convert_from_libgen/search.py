@@ -105,6 +105,8 @@ class LibgenSearch:
         """Returns a dictionary of search results."""
         results = OrderedDict()
 
+        print("LGD - testing")
+
         resp = requests.get(self.url, headers=get_request_headers())
         if resp.status_code != 200:
             raise LibgenError("The requested URL did not have status code 200.")
