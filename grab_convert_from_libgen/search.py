@@ -44,6 +44,8 @@ class LibgenSearch:
         else:
             raise InvalidSearchParameter("Given search parameters are not valid.")
 
+        print("LGD testing")
+
     def _grab_file_from_mirror(
         self, mirror_url: str, save_to: pathlib.Path, convert_to=None
     ) -> str:
